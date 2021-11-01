@@ -1,0 +1,38 @@
+schema {
+  query: Query
+}
+
+"Structure of an individual post"
+type Post {
+  id: ID!
+  title: String!
+  description: String!
+  created_at: String!
+}
+
+"Returns a single post"
+type PostResult {
+  "Returns a status code which is non-nullable"
+  success: Boolean!
+  "Returns error messages incase error occurs"
+  errors: [String]
+  "Returns a single post provided ID is supplied"
+  post: Post
+}
+
+"Returns an array of posts"
+type PostsResult {
+  "Returns a status code which is non-nullable"
+  success: Boolean!
+  "Returns error messages incase error occurs"
+  errors: [String]
+  "Returns a multiple posts provided ID is supplied"
+  post: [Post]
+}
+
+type Query {
+  "Calls the postsresult type to give multiple posts"
+  listPosts: PostsResult!
+  "Calls Post result to return a single post"
+  getPost(id: ID!): PostResult!
+}
