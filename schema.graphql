@@ -1,5 +1,6 @@
 schema {
   query: Query
+  mutation: Mutation
 }
 
 "Structure of an individual post"
@@ -35,4 +36,12 @@ type Query {
   listPosts: PostsResult!
   "Calls Post result to return a single post"
   getPost(id: ID!): PostResult!
+}
+
+type Mutation {
+  createPost(
+    title: String!
+    description: String!
+    created_at: String
+  ): PostResult!
 }
