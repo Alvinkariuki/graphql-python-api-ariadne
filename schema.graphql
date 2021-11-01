@@ -27,7 +27,7 @@ type PostsResult {
   "Returns error messages incase error occurs"
   errors: [String]
   "Returns a multiple posts provided ID is supplied"
-  post: [Post]
+  posts: [Post]
 }
 
 type Query {
