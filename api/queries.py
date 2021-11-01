@@ -31,3 +31,18 @@ def getPost_resolver(obj, info, id):
             "error":["Post item matchin {id} not found"]
         }
     return payload
+
+
+@convert_kwargs_to_snake_case
+def delete_post_resolver(obj, info, id):
+    try:
+        post = Post.query.get(id)
+        db.session.delete(post)
+        db.session.commit()
+        payload = {"success": True, "post": post.to_dict()}
+    except AttributeError:
+        payload = {
+            "success": False,
+            "errors": ["Not found"]
+        }
+    return payload 

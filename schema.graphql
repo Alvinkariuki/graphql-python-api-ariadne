@@ -46,4 +46,5 @@ type Mutation {
   ): PostResult!
 
   updatePost(id: ID!, title: Strin, description: String): PostResult!
+  deletePost(id: ID): PostResult!
 }
